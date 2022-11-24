@@ -10,6 +10,7 @@ function App() {
 
   return (
     <div className="main">
+      <h1>Calculateur de </h1>
       <header>
         <TextField label="Cap de la piste" data={capPiste} setData={setCapPiste} />
         <TextField label="Direction du vent" data={capVent} setData={setCapVent} />

@@ -15,10 +15,8 @@ export function ResultLogic(data: { capPiste: number; capVent: number; forceVent
   if (data.capPiste === data.capVent) {
     windCondition = "Head Wind - Vent de face";
     goodToGo = true;
-  }
-
-  // Vent arrière, donc check si force du vent est <= 10
-  if (data.capPiste - data.capVent > 90) {
+  } else if (Math.abs(data.capPiste - data.capVent) > 90) {
+    // Vent arrière, donc check si force du vent est <= 10
     windCondition = "Tail Wind - Vent arrière";
 
     if (data.forceVent <= 10) {
@@ -26,10 +24,8 @@ export function ResultLogic(data: { capPiste: number; capVent: number; forceVent
     } else {
       goodToGo = false;
     }
-  }
-
-  // Vent de travers
-  if (data.capPiste - data.capVent <= 90) {
+  } else {
+    // Vent de travers
     windCondition = "Cross Wind - Vent de travers";
     goodToGo = true;
   }
@@ -44,7 +40,7 @@ export const Result = (props: { data: { capPiste: number; capVent: number; force
     <div className="result">
       <h1>Result</h1>
       <h2>{result.windCondition}</h2>
-      <h2>{result.goodToGo}</h2>
+      <h2>{result.goodToGo ? "Good to go!" : "Not good."}</h2>
     </div>
   );
 };
