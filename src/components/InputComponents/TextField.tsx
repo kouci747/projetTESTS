@@ -1,11 +1,14 @@
-import React from 'react'
-
-export default function TextField() {
+export const TextField = (props: { label: string; data: number; setData: Function }) => {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-      <label>Cap de la piste</label>
-      <input  placeholder='enter runway heading'></input>
+    <div className="textField">
+      <label htmlFor={props.label}>{props.label}</label>
+      <input
+        type="number"
+        id={props.label}
+        placeholder="enter runway heading"
+        value={props.data}
+        onChange={(e) => props.setData(e.target.value)}
+      />
     </div>
-  )
-}
+  );
+};
