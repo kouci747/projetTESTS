@@ -1,16 +1,19 @@
 import { assert, describe, it, test } from "vitest";
+import { ResultLogic } from "../components";
 
-const sum = (a: number, b: number) => {
-  return a + b;
-};
+describe("Testing the logic", () => {
+  test('Should get "Head Wind"', () => {
+    const expectedResult = {
+      windCondition: "Head Wind - Vent de face",
+      goodToGo: true,
+    };
+    const result = ResultLogic({ capPiste: 270, capVent: 270, forceVent: 0 });
 
-test("Should get a 3 as a result", () => {
-  assert.equal(sum(1, 2), 3);
-});
-
-describe("Logic tests", () => {
-  it("Should get a 3 as a result", () => {});
-  it("Should get a 3 as a result", () => {});
-  it("Should get a 3 as a result", () => {});
-  it("Should get a 3 as a result", () => {});
+    it('Should get "true" on GoodToGo', () => {
+      assert.strictEqual(result.goodToGo, expectedResult.goodToGo);
+    });
+    it('Should get "Head Wind - Vent de face" on windCondition', () => {
+      assert.strictEqual(result.windCondition, expectedResult.windCondition);
+    });
+  });
 });
