@@ -4,6 +4,29 @@
   padding: 2rem;
 }
 
+.wind {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wind .textField:first-of-type {
+  width: 100%;
+}
+.wind .textField:last-of-type {
+  width: 10rem;
+}
+
+.wind h1 {
+  padding: 0 2rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 5rem;
+  font-weight: 100;
+}
+
 .textField {
   display: flex;
   flex-direction: column;

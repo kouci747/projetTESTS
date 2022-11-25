@@ -20,11 +20,11 @@ export default class Logic {
     this.windCondition = "";
     this.goodToGo = null;
 
-    if (this.capVent > 180) {
+    if (this.capVent && this.capVent > 180) {
       this.capVent = this.capVent - this.MAX;
     }
 
-    if (this.capPiste > 180) {
+    if (this.capPiste && this.capPiste > 180) {
       this.capPiste = this.capPiste - this.MAX;
     }
   }
@@ -54,7 +54,6 @@ export default class Logic {
   }
 
   public isTailWind(): boolean {
-    console.log(this.capPiste, this.capVent, this.capPiste - this.capVent);
     return Math.abs(this.capPiste - this.capVent) > this.PERPENDICULAR;
   }
 
