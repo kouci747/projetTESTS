@@ -4,6 +4,7 @@
 export default class Logic {
   private LIMITWINDFORCE: number = 10;
   private PERPENDICULAR: number = 90;
+  private MAX: number = 360;
 
   private capPiste: number;
   private capVent: number;
@@ -18,6 +19,14 @@ export default class Logic {
     this.forceVent = _forceVent;
     this.windCondition = "";
     this.goodToGo = null;
+
+    if (this.capVent >= 180) {
+      this.capVent = Math.abs(this.capVent - this.MAX);
+    }
+
+    if (this.capPiste >= 180) {
+      this.capPiste = Math.abs(this.capPiste - this.MAX);
+    }
   }
 
   public computeResult(): { windCondition: string; goodToGo: boolean | null } {
@@ -45,6 +54,7 @@ export default class Logic {
   }
 
   public isTailWind(): boolean {
+    console.log(Math.abs(this.capPiste - this.capVent));
     return Math.abs(this.capPiste - this.capVent) > this.PERPENDICULAR;
   }
 
