@@ -10,9 +10,9 @@ function App() {
 
   return (
     <div className="main">
-      <h1>Calculateur de </h1>
+      <h1>TakeOff Calculator</h1>
       <header>
-        <TextField label="Cap de la piste" data={capPiste} setData={setCapPiste} />
+        <TextField label="Cap de la piste" data={capPiste} setData={setCapPiste} min={1} max={360} />
         <TextField label="Direction du vent" data={capVent} setData={setCapVent} />
         <TextField label="Force du vent" data={forceVent} setData={setForceVent} />
       </header>
