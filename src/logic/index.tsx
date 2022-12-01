@@ -2,16 +2,16 @@
  * Class qui définie la logique pour calculer si l'avion peut décoller ou non.
  */
 export default class Logic {
-  private LIMITWINDFORCE: number = 10;
-  private PERPENDICULAR: number = 90;
-  private MAX: number = 360;
+  public LIMITWINDFORCE: number = 10;
+  public PERPENDICULAR: number = 90;
+  public MAX: number = 360;
 
-  private capPiste: number;
-  private capVent: number;
-  private forceVent: number;
+  public capPiste: number;
+  public capVent: number;
+  public forceVent: number;
 
-  private windCondition: string;
-  private goodToGo: boolean | null;
+  public windCondition: string;
+  public goodToGo: boolean | null;
 
   constructor(_capPiste: number, _capVent: number, _forceVent: number) {
     this.capPiste = _capPiste;
