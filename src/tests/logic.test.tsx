@@ -14,7 +14,7 @@ describe("Setting the initial variables of logic", () => {
     expectTypeOf(logic.windCondition).toBeString()
     expectTypeOf(logic.goodToGo).toBeNullable()
   })
-
+  
   test('Testing values', () => {
     expect(logic.LIMITWINDFORCE).toBe(10)
     expect(logic.PERPENDICULAR).toBe(90)
